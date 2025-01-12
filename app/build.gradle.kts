@@ -48,4 +48,13 @@ dependencies {
     annotationProcessor(libs.glideCompiler)
     implementation(libs.roundedimageview)
     implementation(libs.materialSearchBar)
+    // Material Components for Android. Replace the version with the latest version of Material Components library.
+    implementation (libs.materialComponents)
+
+    // Circle Indicator (To fix the xml preview "Missing classes" error)
+    implementation (libs.circleIndicator)
+
+    implementation (libs.imageCarousel)
 }
+
+
