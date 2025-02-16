@@ -7,6 +7,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
+volley = "1.2.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -24,9 +25,10 @@ roundedimageview = "com.makeramen:roundedimageview:2.3.0"
             #for searchBar
 materialSearchBar = "com.github.mancj:MaterialSearchBar:0.8.5"
             #for slider
-materialComponents = " com.google.android.material:material:1.12.0 "
+materialComponents = " com.google.android.material:material:1.5.0 "
 circleIndicator =  'me.relex:circleindicator:2.1.6'
 imageCarousel = "org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0"
+volley = { module = "com.android.volley:volley", version.ref = "volley" }
 
 
 [plugins]

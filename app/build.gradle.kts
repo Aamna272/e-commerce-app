@@ -55,6 +55,18 @@ dependencies {
     implementation (libs.circleIndicator)
 
     implementation (libs.imageCarousel)
+    implementation(libs.volley)
+    implementation ("com.google.android.material:material:1.5.0")
+        implementation ("com.android.volley:volley:1.2.1")
+        implementation ("com.github.bumptech.glide:glide:4.12.0")
+        annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
+
+
+    // Circle Indicator (To fix the xml preview "Missing classes" error)
+    implementation (libs.circleIndicator)
+
+    implementation (libs.imageCarousel)
 }
 
 

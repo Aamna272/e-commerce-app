@@ -1,58 +1,58 @@
 package com.example.semesterproject.activities.adapters;
-import com.bumptech.glide.Glide;
+
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.semesterproject.R;
-import com.example.semesterproject.activities.Category;
-import com.example.semesterproject.databinding.ItemCategoriesBinding;
-
+import com.example.semesterproject.activities.CategoryActivity;
 import java.util.ArrayList;
-
+import com.example.semesterproject.activities.Category;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
+    private Context context;
+    private ArrayList<Category> categoryList;
 
-    Context context;
-    ArrayList<Category> categories;
-    public CategoryAdapter(Context context, ArrayList<Category> categories){
-        this.context=context;
-        this.categories=categories;
-
-
+    public CategoryAdapter(Context context, ArrayList<Category> categoryList) {
+        this.context = context;
+        this.categoryList = categoryList;
     }
 
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CategoryViewHolder(LayoutInflater.from(context).inflate(R.layout.item_categories,parent,false));
+        View view = LayoutInflater.from(context).inflate(R.layout.item_categories, parent, false);
+        return new CategoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        Category category = categories.get(position);
-        holder.binding.label.setText(category.getName());
-        Glide.with(context)
-                .load(category.getIcon())
-                .into(holder.binding.image);
-        holder.binding.image.setBackgroundColor(Color.parseColor(category.getColor()));
+        Category category = categoryList.get(position);
+        holder.categoryName.setText(category.getName());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, CategoryActivity.class);
+            intent.putExtra("categoryName", category.getName());
+            context.startActivity(intent);
+        });
     }
+
     @Override
     public int getItemCount() {
-        return categories.size();
+        return categoryList.size();
     }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder{
-        ItemCategoriesBinding binding;
-        public CategoryViewHolder(@NonNull View itemView){
+    public static class CategoryViewHolder extends RecyclerView.ViewHolder {
+        TextView categoryName;
+
+        public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
-            binding=ItemCategoriesBinding.bind(itemView);
+            categoryName = itemView.findViewById(R.id.categoryName);
         }
     }
-
-    }
+}
